@@ -1,7 +1,7 @@
 function App() {
   return (
     <h1 className="
-      text-3xl text-blue font-medium 
+      text-amber-600 text-3xl font-medium 
       underline cursor-pointer
       "
     >
