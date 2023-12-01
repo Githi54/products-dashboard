@@ -38,7 +38,7 @@ class Product {
 }
 
 const seedProductList = (size = 10, productList = []) => {
-    if (size > productNames) {
+    if (size > productNames.length) {
         throw new Error('There are not enough products to create a list of this size')
     }
 
@@ -47,13 +47,15 @@ const seedProductList = (size = 10, productList = []) => {
     }
 
     const newProduct = new Product()
+    const isUuidDuplicate = productList.some(product => product.id === newProduct.id)
     const isNameDuplicate = productList.some(product => product.name === newProduct.name)
 
-    if (!isNameDuplicate) {
+    if (!isUuidDuplicate && !isNameDuplicate) {
         return seedProductList(size, [...productList, newProduct])
     } else {
         return seedProductList(size, productList)
     }
 }
+
 
 export const productListData = seedProductList()
