@@ -15,7 +15,7 @@ export const categories = [
     }
 ]
 
-const productNames = [
+export const productNames = [
     ['Iphone', 'Ipad', 'Apple watch', 'MacBook'], 
     ['Bananas', 'Oranges', 'Apples', 'Beef'], 
     ['Thermometer', 'Medicaments', 'Vitamins', 'Glasses']
@@ -37,8 +37,8 @@ class Product {
     }
 }
 
-const seedProductList = (size = 10, productList = []) => {
-    if (size > productNames.length) {
+export const seedProductList = (size = 10, productList = []) => {
+    if (size > productNames.reduce((a, b) => a.concat(b)).length) {
         throw new Error('There are not enough products to create a list of this size')
     }
 
