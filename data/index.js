@@ -26,7 +26,7 @@ const { string: { uuid }, finance: { amount: getRandomAmount }, date: { between:
 const getRandomProductName = (categoryID) => productNames[categoryID][Math.floor(Math.random() * productNames[categoryID].length)]
 
 class Product {
-    constructor(categoryID = Math.floor(Math.random * categories.length)) {
+    constructor(categoryID = Math.floor(Math.random() * categories.length)) {
         this.id = uuid()
         this.categoryID = categoryID
         this.date = getRandomDate({from: '2023-12-01T00:00:00.000Z', to: '2023-12-31T00:00:00.000Z'})
@@ -36,8 +36,6 @@ class Product {
         this.profitMargins = getRandomAmount(0, 1)
     }
 }
-
-const usedNames = []
 
 const seedProductList = (size = 10, productList = []) => {
     if (size > productNames) {
@@ -49,13 +47,13 @@ const seedProductList = (size = 10, productList = []) => {
     }
 
     const newProduct = new Product()
+    const isNameDuplicate = productList.some(product => product.name === newProduct.name)
 
-    while (usedNames.includes(newProduct.name)) {
-        newProduct.name = getRandomProductName(newProduct.categoryID)
+    if (!isNameDuplicate) {
+        return seedProductList(size, [...productList, newProduct])
+    } else {
+        return seedProductList(size, productList)
     }
-
-    usedNames.push(newProduct.name)
-    seedProductList(size, [...productList, newProduct])
 }
 
 export const productListData = seedProductList()
