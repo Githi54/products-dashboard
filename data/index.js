@@ -56,6 +56,3 @@ export const seedProductList = (size = 10, productList = []) => {
         return seedProductList(size, productList)
     }
 }
-
-
-export const productListData = seedProductList()
