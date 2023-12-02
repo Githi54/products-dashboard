@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom" 
 import { Layout } from "@components/templates/layout" 
+import { Page404 } from "@components/pages/404"
 
 export const router = createBrowserRouter([
   {
@@ -9,16 +10,9 @@ export const router = createBrowserRouter([
     )
   },
   {
-    path: '/about',
+    path: '*',
     element: (
-      <h1
-        className="
-            text-amber-600 text-3xl font-medium 
-            underline cursor-pointer
-        "
-      >
-        about
-      </h1>
+      <Page404 />
     ),
   }
 ]) 

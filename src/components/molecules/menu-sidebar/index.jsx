@@ -5,15 +5,20 @@ import {
     PieChartOutlined,
 } from '@ant-design/icons'
 import { getMenuItem } from '@shared/get-menu-item'
+import { Routes } from '@shared/routes'
+import { useNavigate } from 'react-router'
 
 const { Sider } = Layout
 
 export const MenuSidebar = () => {
-  const [collapsed, setCollapsed] = useState(false)
+  const navigate = useNavigate()
+  const [collapsed, setCollapsed] = useState(true)
   const items = [
-    getMenuItem('Option 1', '1', <PieChartOutlined />),
-    getMenuItem('Option 2', '2', <DesktopOutlined />),
+    getMenuItem('Products info', Routes.PRODUCTS_INFO, <DesktopOutlined />),
+    getMenuItem('Analytics', Routes.ANALYTICS, <PieChartOutlined />),
   ]
+
+  const handleClickMenuItem = (event) => navigate(event.key)
 
   return (
     <Sider 
@@ -22,7 +27,12 @@ export const MenuSidebar = () => {
         onCollapse={setCollapsed}
     >
         <div className="demo-logo-vertical" />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+        <Menu 
+          theme="dark" 
+          mode="inline" 
+          items={items}
+          onClick={handleClickMenuItem} 
+        />
     </Sider>
   )
 }
