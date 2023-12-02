@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Layout, Menu } from "antd";
 import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
-import { getMenuItem } from "@shared/get-menu-item";
+import { useMenu } from "@shared/hooks";
 import { Routes } from "@shared/routes";
 import { useNavigate } from "react-router";
 
@@ -10,6 +10,7 @@ const { Sider } = Layout;
 export const MenuSidebar = () => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(true);
+  const { getMenuItem } = useMenu();
   const items = [
     getMenuItem("Products info", Routes.PRODUCTS_INFO, <DesktopOutlined />),
     getMenuItem("Analytics", Routes.ANALYTICS, <PieChartOutlined />),

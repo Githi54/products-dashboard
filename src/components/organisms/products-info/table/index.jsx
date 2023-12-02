@@ -2,10 +2,6 @@ import { Table } from "antd";
 import { useTable } from "@shared/hooks";
 import { useSelector } from "react-redux";
 
-const onChange = (pagination, filters, sorter, extra) => {
-  console.log("params", pagination, filters, sorter, extra);
-};
-
 export const ProductInfoTable = () => {
   const { createSortedColumn, createColumn, createFilteredColumn } = useTable();
   const categories = useSelector(({ categories }) => categories);
@@ -56,7 +52,6 @@ export const ProductInfoTable = () => {
       columns={columns}
       pagination={false}
       dataSource={data}
-      onChange={onChange}
     />
   );
 };
