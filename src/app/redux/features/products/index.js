@@ -1,5 +1,5 @@
-import { seedProductList } from "@data";
-import { createSlice } from "@reduxjs/toolkit";
+import { seedProductList } from "@data" 
+import { createSlice } from "@reduxjs/toolkit" 
 
 const initialState = seedProductList()
 

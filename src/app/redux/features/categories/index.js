@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { categories } from "@data";
+import { createSlice } from "@reduxjs/toolkit" 
+import { categories } from "@data" 
 
 const categoriesSlice = createSlice({
     name: "categories",
