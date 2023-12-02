@@ -1,4 +1,4 @@
 export const Routes = {
-    PRODUCTS_INFO: '/products-info',
-    ANALYTICS: '/analytics'
-}
+  PRODUCTS_INFO: "/products-info",
+  ANALYTICS: "/analytics",
+};

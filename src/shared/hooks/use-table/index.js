@@ -1,30 +1,29 @@
 export const useTable = () => {
-  const getColumn = (title, dataIndex) => ({
+  const createColumn = (title, dataIndex) => ({
     title,
     dataIndex,
   });
 
-  const getSortedColumn = (title, dataIndex, multiple) => {
-    const column = getColumn(title, dataIndex)
+  const createSortedColumn = (title, dataIndex, multiple) => {
+    const column = createColumn(title, dataIndex);
 
     column.sorter = {
       compare: (a, b) => a[dataIndex] - b[dataIndex],
-      multiple
-    }
+      multiple,
+    };
 
-    return column
+    return column;
   };
 
-  const getFilteredColumn = (title, dataIndex, filters) => {
-    const column = getColumn(title, dataIndex)
+  const createFilteredColumn = (title, dataIndex, filters) => {
+    const column = createColumn(title, dataIndex);
 
-    column.filters = filters
-    column.onFilter = (value, record) => record.address.startsWith(value)
-    column.onFilter = (value, record) => record.address.startsWith(value)
-    column.filterSearch = true
+    column.filters = filters;
+    column.onFilter = (value, record) => record[dataIndex].startsWith(value);
+    column.filterSearch = true;
 
-    return column
-  }
+    return column;
+  };
 
-  return { getColumn, getSortedColumn, getFilteredColumn };
+  return { createColumn, createSortedColumn, createFilteredColumn };
 };

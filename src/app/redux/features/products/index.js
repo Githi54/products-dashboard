@@ -1,12 +1,12 @@
-import { seedProductList } from "@data" 
-import { createSlice } from "@reduxjs/toolkit" 
+import { seedProductList } from "@data";
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = seedProductList()
+const initialState = seedProductList();
 
 const productsSlice = createSlice({
-    name: 'products',
-    initialState,
-    reducers: {}
-})
+  name: "products",
+  initialState,
+  reducers: {},
+});
 
-export default productsSlice.reducer
+export default productsSlice.reducer;

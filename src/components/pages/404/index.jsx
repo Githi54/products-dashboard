@@ -1,5 +1,5 @@
-import { Result } from 'antd';
-import { Link } from 'react-router-dom';
+import { Result } from "antd";
+import { Link } from "react-router-dom";
 
 export const Page404 = () => (
   <Result

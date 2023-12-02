@@ -1,7 +1,7 @@
-import { createBrowserRouter } from "react-router-dom" 
-import { Layout } from "@components/templates/layout" 
-import { Page404 } from "@components/pages"
-import { ProductInfoTable } from "@components/organisms"
+import { createBrowserRouter } from "react-router-dom";
+import { Layout } from "@components/templates/layout";
+import { Page404 } from "@components/pages";
+import { ProductInfoTable } from "@components/organisms";
 
 export const router = createBrowserRouter([
   {
@@ -10,12 +10,10 @@ export const router = createBrowserRouter([
       <Layout>
         <ProductInfoTable />
       </Layout>
-    )
+    ),
   },
   {
-    path: '*',
-    element: (
-      <Page404 />
-    ),
-  }
-]) 
+    path: "*",
+    element: <Page404 />,
+  },
+]);
