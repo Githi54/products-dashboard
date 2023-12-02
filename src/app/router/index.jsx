@@ -1,12 +1,15 @@
 import { createBrowserRouter } from "react-router-dom" 
 import { Layout } from "@components/templates/layout" 
-import { Page404 } from "@components/pages/404"
+import { Page404 } from "@components/pages"
+import { ProductInfoTable } from "@components/organisms"
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <Layout><h2>Hello</h2></Layout>
+      <Layout>
+        <ProductInfoTable />
+      </Layout>
     )
   },
   {

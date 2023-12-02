@@ -14,7 +14,11 @@ export const Layout = ({ children }) => {
       <AntLayout>
         <Content
           style={{
-            margin: '0 16px',
+            height: '100%',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
           }}
         >
           {children}

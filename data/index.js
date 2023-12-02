@@ -23,10 +23,10 @@ export const productNames = [
 
 const { string: { uuid }, finance: { amount: getRandomAmount }, date: { between: getRandomDate }} = faker
 
-const getRandomProductName = (categoryID) => productNames[categoryID][Math.floor(Math.random() * productNames[categoryID].length)]
+const getRandomProductName = (categoryID) => productNames[categoryID - 1][Math.floor(Math.random() * productNames[categoryID - 1].length)]
 
 class Product {
-    constructor(categoryID = Math.floor(Math.random() * categories.length)) {
+    constructor(categoryID = Math.floor(Math.random() * categories.length + 1)) {
         this.id = uuid()
         this.categoryID = categoryID
         this.date = getRandomDate({from: '2023-12-01T00:00:00.000Z', to: '2023-12-31T00:00:00.000Z'})
