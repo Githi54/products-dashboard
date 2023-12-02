@@ -20,7 +20,7 @@ export const ProductInfoTable = () => {
     createSortedColumn("Revenue, $", "revenue", 1),
     createSortedColumn("Unit sold", "unitSold", 3),
     createSortedColumn("Profit margins, %", "profitMargins", 2),
-    createColumn("Created at", "date"),
+    createColumn("Created at", "date")
   ];
   // use binary search. Now we have only 3 categories, but this function for scaling
   const findCategoryByID = (categoryID) => {
@@ -40,13 +40,14 @@ export const ProductInfoTable = () => {
     return "Unknown";
   };
   const data = products.map(
-    ({ name, revenue, unitSold, categoryID, profitMargins, date }) => ({
+    ({ name, revenue, unitSold, categoryID, profitMargins, id, date }) => ({
+      key: id,
       name,
       revenue,
       unitSold,
       category: findCategoryByID(categoryID),
       profitMargins: Math.floor(profitMargins * 100),
-      date,
+      date: date.toString().slice(4, 21)
     })
   );
 
