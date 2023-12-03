@@ -1,10 +1,9 @@
 import { Table } from "antd";
-import { useTable, useProcessData } from "@shared/hooks";
+import { useTable } from "@shared/hooks";
 import { useSelector } from "react-redux";
 
 export const ProductInfoTable = () => {
-  const { createSortedColumn, createColumn, createFilteredColumn } = useTable();
-  const { findCategoryByID } = useProcessData();
+  const { createSortedColumn, createColumn, createFilteredColumn, createTableData } = useTable();
   const categories = useSelector(({ categories }) => categories);
   const products = useSelector(({ products }) => products);
   const categoryFilters = categories.map(({ name }) => ({
@@ -20,17 +19,7 @@ export const ProductInfoTable = () => {
     createColumn("Created at", "date")
   ];
 
-  const data = products.map(
-    ({ name, revenue, unitSold, categoryID, profitMargins, id, date }) => ({
-      key: id,
-      name,
-      revenue,
-      unitSold,
-      category: findCategoryByID(categoryID, categories),
-      profitMargins: Math.floor(profitMargins * 100),
-      date: date.toString().slice(4, 21)
-    })
-  );
+  const data = products.map(product => createTableData(product, categories));
 
   return (
     <Table
