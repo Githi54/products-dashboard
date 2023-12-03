@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Layout, Menu } from "antd";
 import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
 import { useMenu } from "@shared/hooks";
-import { Routes } from "@shared/routes";
+import { Routes } from "@shared/constants";
 import { useNavigate } from "react-router";
 
 const { Sider } = Layout;
