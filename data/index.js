@@ -41,7 +41,7 @@ class Product {
       to: "2023-12-31T00:00:00.000Z",
     });
     this.name = getRandomProductName(categoryID);
-    this.revenue = getRandomAmount(100, 100000, 0);
+    this.revenue = getRandomAmount(100, 10000, 0);
     this.unitSold = getRandomAmount(5, 1000, 0);
     this.profitMargins = getRandomAmount(0, 1);
   }
