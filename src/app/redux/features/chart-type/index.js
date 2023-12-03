@@ -4,8 +4,10 @@ const chartTypeSlice = createSlice({
   name: "chartType",
   initialState: "bar",
   reducers: {
-    changeChartType(state, { payload }) {
-      state.chartType = payload;
+    changeChartType(state, action) {
+      state = action.payload;
+
+      return state;
     },
   },
 });

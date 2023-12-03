@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
 import { BarChart } from "@components/molecules";
 import { useCharts } from "@shared/hooks";
+import { PropTypes } from "prop-types";
 
-export const AnalyticChart = () => {
+export const AnalyticChart = ({ chartType }) => {
+  const products = useSelector((state) => state.products);
+
   const options = {
     responsive: true,
     plugins: {
@@ -11,21 +14,23 @@ export const AnalyticChart = () => {
       },
       title: {
         display: true,
-        text: "Chart.js Bar Chart",
+        text: "December statistic",
       },
     },
   };
 
   const { createBarData } = useCharts();
 
-  const data = createBarData();
+  const data = createBarData(products);
 
-  console.log(data);
-
-  const chartType = useSelector(({ chartType }) => chartType);
   const charts = {
     bar: <BarChart options={options} data={data} />,
+    pie: <div>Lalalala</div>,
   };
 
   return <>{charts[chartType]}</>;
+};
+
+AnalyticChart.propTypes = {
+  chartType: PropTypes.string,
 };
