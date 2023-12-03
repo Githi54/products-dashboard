@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
-import { Layout as AntLayout } from "antd";
+import { Layout as AntLayout, Spin } from "antd";
 import { MenuSidebar } from "@components/molecules";
+import { useState } from "react";
 const { Content, Footer } = AntLayout;
 
 export const Layout = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  setTimeout(() => setIsLoading(false), 500);
+
   return (
     <AntLayout
       style={{
@@ -19,7 +23,7 @@ export const Layout = ({ children }) => {
             alignItems: "center",
           }}
         >
-          {children}
+          {isLoading ? (<Spin />) : children}
         </Content>
         <Footer
           style={{
