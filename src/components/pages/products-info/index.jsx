@@ -1,7 +1,7 @@
 import { Layout } from "@components/templates";
 import { ProductInfoTable } from "@components/organisms";
 import { CSVLink } from "react-csv";
-import { Space } from "antd";
+import { Flex } from "antd";
 import { useTable } from "@shared/hooks";
 import { useSelector } from "react-redux";
 
@@ -25,16 +25,17 @@ export const ProductsInfoPage = () => {
 
   return (
     <Layout>
-      <Space
-        direction="vertical"
-        size="middle"
-        style={{ display: "flex", paddingTop: "10px" }}
+      <Flex
+        vertical
+        align="flex-end"
+        gap="middle"
+        style={{ paddingTop: "10px" }}
       >
         <CSVLink data={csvData} headers={csvHeaders} filename="product_info">
           Download full info
         </CSVLink>
         <ProductInfoTable products={products} categories={categories} />
-      </Space>
+      </Flex>
     </Layout>
   );
 };
