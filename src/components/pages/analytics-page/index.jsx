@@ -11,7 +11,7 @@ export const AnalyticsPage = () => {
     dispatch(changeChartType(value));
   };
 
-  console.log(chartType)
+
 
   return (
     <Layout>

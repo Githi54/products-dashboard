@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
-import { BarChart } from "@components/molecules";
+import { BarChart, PieChart } from "@components/molecules";
 import { useCharts } from "@shared/hooks";
 import { PropTypes } from "prop-types";
 
 export const AnalyticChart = ({ chartType }) => {
-  const products = useSelector((state) => state.products);
+  const products = useSelector(({ products }) => products);
+  const categories = useSelector(({ categories }) => categories);
 
   const options = {
     responsive: true,
@@ -19,16 +20,19 @@ export const AnalyticChart = ({ chartType }) => {
     },
   };
 
-  const { createBarData } = useCharts();
+  const { createBarData, createPieData } = useCharts();
 
-  const data = createBarData(products);
-
-  const charts = {
-    bar: <BarChart options={options} data={data} />,
-    pie: <div>Lalalala</div>,
+  const dataCallbacks = {
+    bar: createBarData,
+    pie: createPieData,
   };
 
-  return <>{charts[chartType]}</>;
+  const charts = {
+    bar: <BarChart options={options} data={dataCallbacks.bar(products)} />,
+    pie: <PieChart data={dataCallbacks.pie(products,categories)} />,
+  };
+
+  return charts[chartType];
 };
 
 AnalyticChart.propTypes = {
