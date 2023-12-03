@@ -1,11 +1,9 @@
 import { Table } from "antd";
 import { useTable } from "@shared/hooks";
-import { useSelector } from "react-redux";
+import { PropTypes } from 'prop-types';
 
-export const ProductInfoTable = () => {
+export const ProductInfoTable = ({ products, categories }) => {
   const { createSortedColumn, createColumn, createFilteredColumn, createTableData } = useTable();
-  const categories = useSelector(({ categories }) => categories);
-  const products = useSelector(({ products }) => products);
   const categoryFilters = categories.map(({ name }) => ({
     text: name,
     value: name,
@@ -29,3 +27,8 @@ export const ProductInfoTable = () => {
     />
   );
 };
+
+ProductInfoTable.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object),
+  categories: PropTypes.arrayOf(PropTypes.object),
+}

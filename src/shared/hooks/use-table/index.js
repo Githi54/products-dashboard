@@ -29,11 +29,12 @@ export const useTable = () => {
     return column;
   };
 
-  const createCSVTableData = (product, categories) => {
-    const { name, revenue, unitSold, categoryID, profitMargins, date } =
+  const createTableData = (product, categories) => {
+    const { name, revenue, unitSold, categoryID, profitMargins, date, id } =
       product;
 
     return {
+      key: id,
       name,
       revenue,
       unitSold,
@@ -43,13 +44,15 @@ export const useTable = () => {
     };
   };
 
-  const createTableData = (product, categories) => {
-    const data = createCSVTableData(product, categories);
+  const createCSVTableData = (product, categories) => {
+    const data = createTableData(product, categories);
 
-    data.key = product.id;
+    delete data.key;
 
     return data;
   };
+
+  const createCSVHeader = (label, key) => ({ label, key });
 
   return {
     createColumn,
@@ -57,5 +60,6 @@ export const useTable = () => {
     createFilteredColumn,
     createTableData,
     createCSVTableData,
+    createCSVHeader,
   };
 };
