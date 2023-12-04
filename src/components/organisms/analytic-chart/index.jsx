@@ -29,7 +29,7 @@ export const AnalyticChart = ({ chartType }) => {
 
   const charts = {
     bar: <BarChart options={options} data={dataCallbacks.bar(products, "revenue", ["Revenue"])} />,
-    pie: <PieChart data={dataCallbacks.pie(products,categories)} />,
+    pie: <PieChart data={dataCallbacks.pie(products,categories, 'unitSold')} />,
   };
 
   return charts[chartType];
