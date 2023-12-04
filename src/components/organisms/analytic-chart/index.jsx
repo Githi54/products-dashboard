@@ -3,8 +3,7 @@ import { BarChart, PieChart } from "@components/molecules";
 import { useCharts } from "@shared/hooks";
 import { PropTypes } from "prop-types";
 
-export const AnalyticChart = ({ chartType }) => {
-  const products = useSelector(({ products }) => products);
+export const AnalyticChart = ({ chartType, metric, labels = [], products }) => {
   const categories = useSelector(({ categories }) => categories);
 
   const options = {
@@ -28,13 +27,21 @@ export const AnalyticChart = ({ chartType }) => {
   };
 
   const charts = {
-    bar: <BarChart options={options} data={dataCallbacks.bar(products, "revenue", ["Revenue"])} />,
-    pie: <PieChart data={dataCallbacks.pie(products,categories, 'unitSold')} />,
+    bar: (
+      <BarChart
+        options={options}
+        data={dataCallbacks.bar(products, metric, labels)}
+      />
+    ),
+    pie: <PieChart data={dataCallbacks.pie(products, categories, metric)} />,
   };
 
   return charts[chartType];
 };
 
 AnalyticChart.propTypes = {
-  chartType: PropTypes.string,
+  chartType: PropTypes.string.isRequired,
+  metric: PropTypes.string.isRequired,
+  labels: PropTypes.arrayOf(PropTypes.string),
+  products: PropTypes.arrayOf(PropTypes.object),
 };

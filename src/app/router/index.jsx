@@ -1,11 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "@components/templates";
-import { Page404, ProductsInfoPage, AnalyticsPage } from "@components/pages";
+import {
+  Page404,
+  ComparePage,
+  ProductsInfoPage,
+  AnalyticsPage,
+} from "@components/pages";
 import { Routes } from "@shared/constants";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: Routes.HOME,
     element: <Layout>Hi</Layout>,
   },
   {
@@ -15,6 +20,10 @@ export const router = createBrowserRouter([
   {
     path: Routes.ANALYTICS,
     element: <AnalyticsPage />,
+  },
+  {
+    path: Routes.COMPARE,
+    element: <ComparePage />,
   },
   {
     path: "*",

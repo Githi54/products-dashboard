@@ -6,12 +6,16 @@ import { changeChartType } from "@app/redux/features";
 
 export const AnalyticsPage = () => {
   const chartType = useSelector(({ chartType }) => chartType);
+  const products = useSelector(({ products }) => products);
   const dispatch = useDispatch();
   const onChangeSelect = (value) => {
     dispatch(changeChartType(value));
   };
 
-
+  const metrics = {
+    bar: "revenue",
+    pie: "unitSold",
+  };
 
   return (
     <Layout>
@@ -32,7 +36,12 @@ export const AnalyticsPage = () => {
             },
           ]}
         />
-        <AnalyticChart chartType={chartType} />
+        <AnalyticChart
+          products={products}
+          chartType={chartType}
+          metric={metrics[chartType]}
+          labels={["Revenue"]}
+        />
       </Flex>
     </Layout>
   );
