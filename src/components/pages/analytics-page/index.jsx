@@ -18,7 +18,7 @@ export const AnalyticsPage = () => {
       <Flex vertical gap="middle" style={{ width: "90%", paddingTop: "10px" }}>
         <Select
           size="small"
-          defaultValue="bar"
+          defaultValue={chartType}
           style={{ width: "150px" }}
           onChange={onChangeSelect}
           options={[
