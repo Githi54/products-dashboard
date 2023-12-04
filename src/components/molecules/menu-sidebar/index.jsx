@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Layout, Menu } from "antd";
-import { DesktopOutlined, PieChartOutlined, FundViewOutlined } from "@ant-design/icons";
+import {
+  DesktopOutlined,
+  PieChartOutlined,
+  FundViewOutlined,
+  FrownOutlined,
+} from "@ant-design/icons";
 import { useMenu } from "@shared/hooks";
 import { Routes } from "@shared/constants";
 import { useNavigate } from "react-router";
@@ -14,7 +19,12 @@ export const MenuSidebar = () => {
   const items = [
     getMenuItem("Products info", Routes.PRODUCTS_INFO, <DesktopOutlined />),
     getMenuItem("Analytics", Routes.ANALYTICS, <PieChartOutlined />),
-    getMenuItem("Compare products metrics", Routes.COMPARE, <FundViewOutlined />)
+    getMenuItem(
+      "Compare products metrics",
+      Routes.COMPARE,
+      <FundViewOutlined />
+    ),
+    getMenuItem("404", "/blablabla", <FrownOutlined />),
   ];
 
   const handleClickMenuItem = (event) => navigate(event.key);
