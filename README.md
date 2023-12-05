@@ -4,6 +4,7 @@ The dashboard is designed to provide a comprehensive view of sales performance
 for a retail company over a specific period(1 month). It includes a combination of 
 tables, charts, and comparison functionalities to facilitate data analysis and 
 decision-making.
+[Demo link](https://githi54.github.io/products-dashboard/])
 ## Stack
 - React + Vite
 - Redux toolkit
