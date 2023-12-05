@@ -29,4 +29,6 @@ export const router = createBrowserRouter([
     path: "*",
     element: <Page404 />,
   },
-]);
+], {
+  basename: "/products-dashboard",
+});
