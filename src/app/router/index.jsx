@@ -1,17 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Layout } from "@components/templates";
 import {
   Page404,
   ComparePage,
   ProductsInfoPage,
   AnalyticsPage,
+  HomePage,
 } from "@components/pages";
 import { Routes } from "@shared/constants";
 
 export const router = createBrowserRouter([
   {
     path: Routes.HOME,
-    element: <Layout>Hi</Layout>,
+    element: <HomePage />,
   },
   {
     path: Routes.PRODUCTS_INFO,

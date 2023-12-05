@@ -36,7 +36,7 @@ export const ComparePage = () => {
             options={selectOptions}
           />
         </Flex>
-        <Flex gap="middle">
+        <Flex gap="middle" vertical>
           <AnalyticChart
             chartType="bar"
             metric="revenue"
