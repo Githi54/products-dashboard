@@ -1,8 +1,26 @@
-# React + Vite
+# Dashboard App
+## Overview: 
+The dashboard is designed to provide a comprehensive view of sales performance 
+for a retail company over a specific period(1 month). It includes a combination of 
+tables, charts, and comparison functionalities to facilitate data analysis and 
+decision-making.
+## Stack
+- React + Vite
+- Redux toolkit
+- Ant design
+- JavaScript
+## Installation
+1. Fork project
+<br /> <br />
+![Screenshot_357](https://user-images.githubusercontent.com/104434132/205265304-e895d29f-567a-4bdf-95eb-1b32e0f51d92.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Clone project for youre repository
+```
+  $ git clone <link>
+ ```
+<details>
+  <summary>Where link</summary>
+  Click to "<>Code" in fork and copy
+  <br /> <br />
+</details>
+3. Install all dependencies. Use yarn command in terminal.
